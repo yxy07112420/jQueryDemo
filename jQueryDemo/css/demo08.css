@@ -1,0 +1,37 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+ul{
+    list-style: none;
+    margin: 0 auto;
+}
+ul li{
+    width: 700px;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.titles{
+    width: 700px;
+    height: 40px;
+    border-radius: 10px;
+    background-color:lightgreen;
+}
+.ulis{
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    color: darkgoldenrod;
+    background-color: darkgrey;
+    display: inline-block;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+.centers{
+    width: 700px;
+    height: 200px;
+    margin-top: 20px;
+}

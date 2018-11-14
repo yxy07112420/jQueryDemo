@@ -1,0 +1,24 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+ul{
+    list-style: none;
+    width: 700px;
+    height: 50px;
+    background-color: darkcyan;
+    font-size: 0px;
+    margin:0 auto;
+    border-radius: 5px;
+}
+ul li{
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    font-size: 15px;
+    line-height: 50px;
+    text-align: center;
+}
+ul li:first-child{
+    background-color: lightseagreen;
+}
