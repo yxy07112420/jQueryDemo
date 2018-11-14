@@ -92,12 +92,12 @@ window.onload = function () {
     //手机号验证
     document.getElementById("telephone").onblur = function () {
         //对手机号设置正则表达式
-        var pass = /^(\+86)[0-9]{11}/;
+        var pass = /^(\+86)[0-9]{11}$/;
         if (!pass.test(this.value)) {
             //创建一个span对象
             creatSpan("utel", "手机格式有误", "color:red;font-size:15px;test-align:center");
             teiIsSuccess = false;
-        } else if (this.value == 1234567890) {
+        } else if (this.value == "+8612345678901") {
             //创建一个span对象
             creatSpan("utel", "该手机号已经注册过", "color:red;font-size:15px;test-align:center");
             teiIsSuccess = false;
@@ -111,7 +111,7 @@ window.onload = function () {
     //邮编验证
     document.getElementById("code").onblur = function () {
         //对邮编设置正则表达式
-        var pass = /[\d]{6}/;
+        var pass = /^[\d]{6}$/;
         if (!pass.test(this.value)) {
             //创建一个span对象
             creatSpan("ucode", "邮编格式有误", "color:red;font-size:15px;test-align:center");
@@ -122,13 +122,28 @@ window.onload = function () {
             codeIsSuccess = true;
         }
     }
-    //设置按钮鼠标单击事件
-    document.getElementById("login").onclick = function () {
-        if(useIsSuccess&&passIsSuccess&&rpassIsSuccess&&emailIsSuccess&&teiIsSuccess&&codeIsSuccess){
-            alert("登录成功");
+    var uidIsSuccess = false;
+    //身份证号验证
+    document.getElementById("userId").onblur = function () {
+        //对邮编设置正则表达式
+        var pass = /^[\d]{17}[\d|x|X]$/;
+        if (!pass.test(this.value)) {
+            //创建一个span对象
+            creatSpan("uid", "身份证号格式有误", "color:red;font-size:15px;test-align:center");
+            uidIsSuccess = false;
         }else {
-            alert("请重新注册");
+            //创建一个span对象
+            creatSpan("uid", "正确", "color:blue;font-size:15px;test-align:center");
+            uidIsSuccess = true;
         }
     }
-
+    //设置按钮鼠标单击事件
+    document.getElementById("login").onclick = function () {
+        if(useIsSuccess&&passIsSuccess&&rpassIsSuccess&&emailIsSuccess&&teiIsSuccess&&codeIsSuccess&&uidIsSuccess){
+            alert("注册成功");
+        }else {
+            alert("请重新注册");
+            return false;
+        }
+    }
 }

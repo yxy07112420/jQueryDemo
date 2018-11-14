@@ -48,6 +48,8 @@ window.onload = function () {
     //创建li标签
     var li ;
     var span;
+    //创建一个数组
+    var arrays ;
     for(var i = 0;i < first.length;i++){
         li = document.createElement("li");
         //设置li的样式
@@ -57,37 +59,41 @@ window.onload = function () {
         //创建div
         var divs = document.createElement("div");
         li.appendChild(divs);
+        // li.id = i;
         divs.id = i;
+        arrays = thrid[i];
+        console.log(arrays);
+        div1.style.display = "none";
         for(var j = 0;j < second[i].length;j++){
-            div1.style.display = "none";
             //对div设置样式
             divs.setAttribute("style","display: inline-block");
             span = document.createElement("span");
             divs.appendChild(span);
             span.innerText = second[i][j]+"|";
-            //对列表设置鼠标滑过效果
-            divs.onmouseover = function () {
-                div1.style.display = "none";
-                var divid = this.id;
-                console.log("当前的div为："+divid);
-               //添加li
-               var sli = document.createElement("li");
-               //设置li的样式
-               sli.setAttribute("style","margin-bottom:10px");
-               //将创建的li标签放在ul中
-               tUl.appendChild(sli);
-               //创建div标签
-               if(this.id == 0){
-                   div1.setAttribute("style","width:500px;height:500px;position: absolute;margin-left: 165px;margin-top:0px;background-color:red;display:block");
+            //对其鼠标滑过的效果
+            divs.onmousemove = function () {
+                var index = this.id;
+                console.log("鼠标滑过"+index);
+                div1.style.display = "block";
+                console.log(thrid[index]);
+               if(tUl.getElementsByTagName("li").length > 0){
+                   for(var n = 0;n<tUl.getElementsByTagName("li").length ;n++){
+                       tUl.removeChild(tUl.getElementsByTagName("li")[n]);
+                   }
                }
-               if(this.id == 1){
-                   div1.setAttribute("style","width:500px;height:500px;position: absolute;margin-left: 165px;margin-top:0pxbackground-color:blue;display:block");
-               }if(this.id == 2){
-                   div1.setAttribute("style","width:500px;height:500px;position: absolute;margin-left: 165px;margin-top:0pxbackground-color:green;display:block");
-                }
-           }
-
+                var li1 = document.createElement("li");
+                tUl.appendChild(li1);
+                var div2 = document.createElement("div");
+                li1.appendChild(div2);
+                var span1 = document.createElement("span");
+                div2.appendChild(span1);
+                span1.innerText =thrid[index];
+                //清除冒泡
+                event.cancelBubble = true;
+            }
+            document.onclick = function () {
+                div1.style.display = "none";
+            }
         }
     }
-
 }
