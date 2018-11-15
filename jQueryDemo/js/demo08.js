@@ -12,12 +12,12 @@ $(function () {
     //单击列表标题
     $(".titles").click(function () {
         console.log($(this).children(".ulis").text());
-        if($(this).children(".ulis").text() == "+"){
-            console.log("++++");
-            $(this).children(".ulis").text("-") ;
+        console.log(typeof ($(this).children(".ulis").children("span").html()));
+        console.log($(this).children(".ulis").children("span").text()=="+");
+        if($(this).children(".ulis").text().match(/\+/) ){
+            $(this).children(".ulis").text("-");
         }
-        if($(this).children(".ulis").text() == "-"){
-            console.log("-----");
+        else if($(this).children(".ulis").text().match(/\-/)){
             $(this).children(".ulis").text("+");
         }
         $(this).next().toggle();
