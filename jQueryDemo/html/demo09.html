@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo09</title>
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../js/demo09.js"></script>
+</head>
+<body>
+    <table border="1px" cellpadding="0px" cellspacing="0px">
+        <tr>
+            <th>
+                <input type="checkbox" id="allcheck">全选
+            </th>
+            <th>商品信息</th>
+            <th>价格</th>
+            <th>数量</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" id="one">
+            </td>
+            <td>
+                <img src="../img/change.png">
+                <a href="">商品详情</a>
+            </td>
+            <td>￥6688元</td>
+            <td><input type="text" placeholder="1"/></td>
+            <td><span id="delete">删除</span></td>
+        </tr>
+    </table>
+    <div id="div1" style="width: 200px;height: 100px;border: 1px solid black;margin-left: 320px">
+        <span>确定要删除吗？</span><br><br>
+        <button id="true">确认</button>
+        <button id="out">取消</button>
+    </div>
+</body>
+</html>
